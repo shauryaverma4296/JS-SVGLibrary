@@ -20,7 +20,7 @@ class SVGElement {
       typeof element === "string"
         ? document.querySelector(element)
         : element.node;
-    this.node.append(parent);
+    parent.appendChild(this.node);
     return this;
   };
 }
