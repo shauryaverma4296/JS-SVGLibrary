@@ -8,21 +8,21 @@ class SVGElement {
     return this;
   }
 
-  attr = (attrs) => {
+  attr(attrs) {
     for (const [key, value] of Object.entries(attrs)) {
       this.node.setAttributeNS(null, key, value);
     }
     return this;
-  };
+  }
 
-  append = (element) => {
+  append(element) {
     const parent =
       typeof element === "string"
         ? document.querySelector(element)
         : element.node;
     parent.appendChild(this.node);
     return this;
-  };
+  }
 }
 
 class Sight {
@@ -31,7 +31,7 @@ class Sight {
     this.svg.attr({ viewbox: `0 0 ${width} ${height}` }).append(selector);
   }
 
-  draw = (type, attrs) => {
+  draw(type, attrs) {
     return new SVGElement(type).attr(attrs).append(this.svg);
-  };
+  }
 }
